@@ -1,0 +1,28 @@
+.notfound-container {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+.notfound-text {
+    font-size: 3rem;
+    color: #000;
+    animation: fadeLoop 2s ease-in-out infinite;
+}
+
+@keyframes fadeLoop {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

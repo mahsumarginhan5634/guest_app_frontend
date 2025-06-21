@@ -1,0 +1,11 @@
+.App {
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
