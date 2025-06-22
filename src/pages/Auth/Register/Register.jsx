@@ -20,6 +20,7 @@ import { showToastMessage } from "../../../utils/ErrorMessage";
 import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../../components/CustomButton/CustomButton.jsx"
 import { ToastMessage } from "../../../utils/Enums";
+import pageRoutes from "../../../route/pageRoutes.jsx";
 
 const Register = () => {
 
@@ -333,7 +334,7 @@ const Register = () => {
                     <div className="flex flex-col align-items-center gap-[30px]">
                         <div className="flex align-items-center justify-items-center gap-2">
                             {"Zaten bir hesabınız varsa "}
-                            <Link to={"/auth/login"} className="text-blue-600 hover:text-blue-700">
+                            <Link to={pageRoutes.AUTH_LOGIN.path} className="text-blue-600 hover:text-blue-700">
                                 {"giriş yapın."}
                             </Link>
                         </div>

@@ -2,6 +2,7 @@ import PublicIcon from "@mui/icons-material/Public";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import pageRoutes from "../../route/pageRoutes.jsx";
 
 export default function LogoSearchSection() {
     const { t } = useTranslation();
@@ -10,7 +11,7 @@ export default function LogoSearchSection() {
     return (
         <>
             <div className="flex flex-wrap md:flex-row items-start md:items-center gap-3 w-full md:w-auto">
-                <div className="flex items-center cursor-pointer" onClick={() => navigate("/home")}>
+                <div className="flex items-center cursor-pointer" onClick={() => navigate(pageRoutes.HOME.path)}>
                     <PublicIcon color="primary"/>
                     <span className="ml-2 text-xl font-bold text-blue-600">{t("navbar.socialLink")}</span>
                 </div>

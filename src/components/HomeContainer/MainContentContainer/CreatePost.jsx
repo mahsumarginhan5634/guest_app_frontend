@@ -1,6 +1,7 @@
 import {Avatar} from "@mui/material";
 import {Link} from "react-router-dom";
 import {getUserFromLocalStorage} from "../../../store/localStorage.js";
+import pageRoutes from "../../../route/pageRoutes.jsx";
 
 export default function CreatePost(){
     const user = getUserFromLocalStorage();
@@ -8,7 +9,7 @@ export default function CreatePost(){
         <>
             <div className="bg-white rounded-lg shadow mb-6 p-4">
                 <div className="flex space-x-4">
-                    <Link to="/my-profile" className="flex items-center px-2">
+                    <Link to={pageRoutes.MY_PROFILE.path} className="flex items-center px-2">
                         <Avatar
                             alt={user?.name}
                             className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold"
