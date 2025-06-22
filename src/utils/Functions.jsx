@@ -71,3 +71,29 @@ export const getCommentCount = (commetCount) => {
 
     return `${commetCount} ${t('comment')}`;
 }
+
+export const getFollowCount = (followCount) => {
+    const billion = Math.pow(10, 9);
+    const million = Math.pow(10, 6);
+    const thousand = Math.pow(10, 3);
+
+    if (followCount >= billion) {
+        const main = Math.floor(followCount / billion);
+        const decimal = Math.floor((followCount % billion) / (billion / 10));
+        return `${main}${decimal > 0 ? '.' + decimal : ''} ${t('billion')}`;
+    }
+
+    if (followCount >= million) {
+        const main = Math.floor(followCount / million);
+        const decimal = Math.floor((followCount % million) / (million / 10));
+        return `${main}${decimal > 0 ? '.' + decimal : ''} ${t('million')}`;
+    }
+
+    if (followCount >= thousand) {
+        const main = Math.floor(followCount / thousand);
+        const decimal = Math.floor((followCount % thousand) / (thousand / 10));
+        return `${main}${decimal > 0 ? '.' + decimal : ''} ${t('thousand')}`;
+    }
+
+    return `${followCount}`;
+}

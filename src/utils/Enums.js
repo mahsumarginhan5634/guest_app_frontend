@@ -3,3 +3,8 @@ export const ToastMessage = Object.freeze({
     ERROR: "error",
     WARNING: "warning"
 });
+
+export const FollowType = Object.freeze ({
+    FOLLOWER: "FOLLOWER",
+    FOLLOWED:"FOLLOWED"
+});
