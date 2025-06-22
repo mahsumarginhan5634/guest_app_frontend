@@ -72,12 +72,12 @@ const Register = () => {
             const response = await tempResponse.json();
             console.log(response)
 
-            if (response.meta.code != "200") {
+            if (response.meta.code !== "200") {
                 showToastMessage(response.meta.errorMessage, ToastMessage.WARNING,
                     durationTime);
             }
 
-            else if (response.meta.code == "200") {
+            else if (response.meta.code === "200") {
                 disableButton(durationTime);
                 showToastMessage(
                     t("userRegisterRequest.userRegisterSuccess"),
@@ -94,7 +94,7 @@ const Register = () => {
             }
 
         } catch (error) {
-            showToastMessage(t("userRegisterRequest.unexpectedError"), "error", durationTime);
+            showToastMessage(t("userRegisterRequest.unexpectedError"), ToastMessage.ERROR, durationTime);
         }
         finally {
             setIsRequestSent(false);

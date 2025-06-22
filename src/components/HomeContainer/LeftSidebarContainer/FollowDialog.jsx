@@ -12,8 +12,8 @@ import {
     Typography,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import {getUserFromLocalStorage} from "../../../store/localStorage.js";
 import {useTranslation} from "react-i18next";
+import {FollowType} from "../../../utils/Enums.js";
 
 export default function FollowDialog({ open, onClose, follows, followType }) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -48,12 +48,12 @@ export default function FollowDialog({ open, onClose, follows, followType }) {
                     className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white flex items-center justify-between py-4 px-6"
                 >
                     <Typography variant="h6">
-                        {followType.toLowerCase() === "followers" ? "Takipçilerim" : "Takip ettiklerim"}
+                        {followType === FollowType.FOLLOWED ?  "Takip ettiklerim" : "Takipçilerim"}
                     </Typography>
                     <Box
                         className="bg-white/20 px-4 py-1 rounded-full text-sm font-medium"
                     >
-                        {follows.length} {followType.toLowerCase() === "followers" ? t("followers") : t("following")}
+                        {follows.length} {followType === FollowType.FOLLOWED ?  t("following") : t("followers")}
                     </Box>
                 </DialogTitle>
 
