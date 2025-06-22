@@ -9,10 +9,10 @@ import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import FollowDialog from "./FollowDialog.jsx";
 import {useEffect, useState} from "react";
-import {FollowType, ToastMessage} from "../../../utils/Enums.js";
+import {FollowType} from "../../../utils/Enums.js";
 import {getUserFollows, getUsersFollowersAndFollowings} from "../../../services/UserFollowService.js";
-import {showToastMessage} from "../../../utils/ErrorMessage.jsx";
 import {getFollowCount} from "../../../utils/Functions.jsx";
+import pageRoutes from "../../../route/pageRoutes.jsx";
 
 export default function LeftSidebarContainer(){
     const user = getUserFromLocalStorage();
@@ -72,7 +72,7 @@ export default function LeftSidebarContainer(){
             <div className="w-full p-4">
                 <div className="bg-white rounded-lg shadow p-4 sticky top-20">
                     <div className="flex items-center space-x-3 mb-6 sidebar-item p-2">
-                        <Link to="/my-profile" className="flex items-center px-2 gap-x-4">
+                        <Link to={pageRoutes.MY_PROFILE.path} className="flex items-center px-2 gap-x-4">
                             <Avatar
                                 alt={user.name}
                                 className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold"

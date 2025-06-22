@@ -15,6 +15,7 @@ import CustomButton from "../../../components/CustomButton/CustomButton.jsx"
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../store/redux/slices/userSlice";
 import { setAccessToken, setRefreshToken, setUserToLocalStorage } from "../../../store/localStorage";
+import pageRoutes from "../../../route/pageRoutes.jsx";
 
 
 function Login() {
@@ -181,7 +182,7 @@ function Login() {
               }}
             >
               <Link
-                to="/auth/register"
+                to={pageRoutes.AUTH_REGISTER.path}
                 style={{
                   textAlign: "center",
                   padding: "20px 0px",

@@ -58,7 +58,6 @@ export default function FollowDialog({ open, onClose, follows, followType }) {
                 </DialogTitle>
 
                 <DialogContent dividers className="px-4 py-2 space-y-2 bg-[whitesmoke]">
-                    {/* Arama kutusu */}
                     <div className="relative mb-2">
                         <InputBase
                             fullWidth

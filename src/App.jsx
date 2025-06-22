@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { ToastContainer } from "react-toastify";
-import routes from "./route/routes";
+import pageRoutes from "./route/pageRoutes.jsx";
 import RouterTracker from "./route/RouterTracker"
 import ToastCleaner from "./utils/ToastCleaner";
 import 'primeicons/primeicons.css';
@@ -32,10 +32,10 @@ function App() {
                   <div
                       className={"flex flex-col"}>
                         <Navbar forwardRef={navbarRef}/>
-                        <div className='flex flex-wrap flex-row justify-center md:flex-row' style={{paddingTop: navbarHeight + 10}}>
+                        <div className='flex flex-wrap flex-row justify-center md:flex-row h-screen' style={{paddingTop: navbarHeight + 10}}>
                           <Routes>
                               {
-                                  routes.map(({path, element}, index) => (
+                                  Object.values(pageRoutes).map(({path, element}, index) => (
                                       <Route
                                           key={index}
                                           path={path}
