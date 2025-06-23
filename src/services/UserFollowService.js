@@ -19,3 +19,12 @@ export const getUsersFollowersAndFollowings = async (userId) => {
         }
     )
 }
+
+export const getMyFollowedsBirthdays = async (userId) => {
+    return await apiClientService(
+        `${BASE_URL}/birthdays/${userId}`,
+        {
+            method:"GET",
+        }
+    )
+}
