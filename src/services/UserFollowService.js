@@ -28,3 +28,12 @@ export const getMyFollowedsBirthdays = async (userId) => {
         }
     )
 }
+
+export const getMyFriendSuggestions = async (userId) => {
+    return await apiClientService(
+        `${BASE_URL}/follow-suggestions/${userId}`,
+        {
+            method:"GET",
+        }
+    )
+}

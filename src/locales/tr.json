@@ -100,5 +100,14 @@
   "groups": "Gruplar",
   "events": "Etkinlikler",
   "locations": "Konumlar",
-  "moreThen": "Daha Fazla"
+  "moreThen": "Daha Fazla",
+  "dataCouldnotFetching": "Veriler getirilemedi.",
+  "seeMore": "Tümünü gör",
+  "followSuggestions": "Takip önerileri",
+  "mutualFriends": "Ortak arkadaşlar",
+  "mutualFriend": "Ortak arkadaş",
+  "follow": "Takip et",
+  "seeMutualFriends": "Ortak arkadaşları gör",
+  "myFollowings": "Takip ettiklerim",
+  "myFollowers": "Takipçilerim"
 }
