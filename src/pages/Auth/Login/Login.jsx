@@ -56,7 +56,7 @@ function Login() {
       }
 
       const response = await tempResponse.json();
-      if (response.meta.code == "200") {
+      if (response.meta.code === "200") {
         const data = response.data;
         if (!data.refreshToken) {
           showToastMessage(

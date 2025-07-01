@@ -61,6 +61,7 @@ export default function LeftSidebarContainer(){
             fetchFollowersAndFollowings();
         }
     }, [user?.id]);
+
     return (
         <>
             <FollowDialog
@@ -90,7 +91,7 @@ export default function LeftSidebarContainer(){
                                 </p>
                                 <p className="text-sm text-gray-500">
                                     {
-                                        "@" + user?.username
+                                        user?.username
                                     }
                                 </p>
                             </div>
