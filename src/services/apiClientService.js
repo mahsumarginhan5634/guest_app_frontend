@@ -39,7 +39,7 @@ const refreshAuthToken = async () => {
 
         if (!response.meta.status) {
             showToastMessage(
-                response.code.errorMessage,
+                response.meta.errorMessage,
                 ToastMessage.WARNING,
                 3000
             );
