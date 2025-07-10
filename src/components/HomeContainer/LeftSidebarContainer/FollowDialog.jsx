@@ -14,8 +14,11 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import {useTranslation} from "react-i18next";
 import {FollowType} from "../../../utils/Enums.js";
+import {getUserFromLocalStorage} from "../../../store/localStorage.js";
+import CustomAvatar from "../../Avatar/CustomAvatar.jsx";
 
 export default function FollowDialog({ open, onClose, follows, followType }) {
+    const user = getUserFromLocalStorage();
     const [searchTerm, setSearchTerm] = useState('');
     const {t} = useTranslation();
     const filteredFollows = useMemo(() => {
@@ -80,7 +83,8 @@ export default function FollowDialog({ open, onClose, follows, followType }) {
                        <div key={index}>
                            <div className="flex justify-between items-center py-2">
                                <div className="flex items-center gap-4">
-                                   <Avatar
+                                   <CustomAvatar
+                                       src={follow.avatarUrl}
                                        sx={{
                                            background: avatarColors[index % avatarColors.length] || '#999',
                                            width: 48,
@@ -89,7 +93,7 @@ export default function FollowDialog({ open, onClose, follows, followType }) {
                                        }}
                                    >
                                        {follow.name?.charAt(0).toUpperCase() || '?'}
-                                   </Avatar>
+                                   </CustomAvatar>
                                    <div>
                                        <p className="font-medium">{follow.name}</p>
                                        <p className="text-sm text-gray-500">{follow.username}</p>

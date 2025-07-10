@@ -97,3 +97,13 @@ export const getFollowCount = (followCount) => {
 
     return `${followCount}`;
 }
+
+export const getNameAndSurnameWithFormatted = (name , surname) => {
+    return (name.charAt(0).toUpperCase() + name.substring(1))
+    + " "
+    + (surname.charAt(0).toUpperCase() + surname.substring(1))
+}
+
+export const getTextWithCapitalize = (text) => {
+    return (text.charAt(0).toUpperCase() + text.substring(1))
+}

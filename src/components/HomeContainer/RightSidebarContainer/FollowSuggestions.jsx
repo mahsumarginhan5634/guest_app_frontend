@@ -4,6 +4,8 @@ import {getUserFromLocalStorage} from "../../../store/localStorage.js";
 import {Avatar, Skeleton} from "@mui/material";
 import {useTranslation} from "react-i18next";
 import FollowDialog from "../LeftSidebarContainer/FollowDialog.jsx";
+import CustomAvatar from "../../Avatar/CustomAvatar.jsx";
+import {getNameAndSurnameWithFormatted} from "../../../utils/Functions.jsx";
 
 export default function FollowSuggestions(){
     const user = getUserFromLocalStorage();
@@ -101,27 +103,26 @@ export default function FollowSuggestions(){
                                                             <div className="story-circle"
                                                                  style={{width: 40, height: 40}}>
                                                                 <div className="story-circle-inner">
-                                                                    <Avatar
-                                                                        title={suggestedFriend.name + " " + suggestedFriend.surname}
+                                                                    <CustomAvatar
+                                                                        src={suggestedFriend.avatarUrl}
+                                                                        title={getNameAndSurnameWithFormatted(suggestedFriend?.name , suggestedFriend?.surname)}
                                                                         alt={suggestedFriend.name}
-                                                                        className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold"
-                                                                        style={{
+                                                                        className="cursor-pointer bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold"
+                                                                        sx={{
                                                                             fontWeight: "bold",
                                                                             fontSize: "1.5rem",
-                                                                            width: 32,
-                                                                            height: 32
+                                                                            width: 50,
+                                                                            height: 50
                                                                         }}
                                                                     >
                                                                         {suggestedFriend.name.charAt(0).toUpperCase()}
-                                                                    </Avatar>
+                                                                    </CustomAvatar>
                                                                 </div>
                                                             </div>
                                                             <div>
                                                                 <p className="font-semibold text-sm">
                                                                     {
-                                                                        suggestedFriend.name.charAt(0).toUpperCase() + suggestedFriend.name.substring(1) +
-                                                                        " " +
-                                                                        suggestedFriend.surname.charAt(0).toUpperCase() + suggestedFriend.surname.substring(1)
+                                                                        getNameAndSurnameWithFormatted(suggestedFriend?.name , suggestedFriend?.surname)
                                                                     }
                                                                 </p>
                                                                 <p
