@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {getUserFromLocalStorage} from "../../../store/localStorage.js";
 import {getUserFollows, getUsersFollowersAndFollowings} from "../../../services/UserFollowService.js";
 import {FollowType} from "../../../utils/Enums.js";
-import {getFollowCount} from "../../../utils/Functions.jsx";
+import {getFollowCount, getNameAndSurnameWithFormatted} from "../../../utils/Functions.jsx";
 import {Avatar, CircularProgress, Skeleton} from "@mui/material";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
@@ -13,6 +13,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import MenuIcon from '@mui/icons-material/Menu';
 import FollowDialog from "./FollowDialog.jsx";
 import pageRoutes from "../../../route/pageRoutes.jsx";
+import CustomAvatar from "../../Avatar/CustomAvatar.jsx";
 
 export default function LeftSidebarContainer() {
     const user = getUserFromLocalStorage();
@@ -74,7 +75,6 @@ export default function LeftSidebarContainer() {
                 follows={follows}
                 followType={followType}
             />
-
             <div className="w-full p-4 min-w-[300px]">
                 <div className="bg-white rounded-lg shadow p-4 sticky">
                     {
@@ -101,20 +101,18 @@ export default function LeftSidebarContainer() {
                             <>
                                 {/* ✅ Gerçek içerik buradan başlıyor */}
                                 <div className="flex items-center space-x-3 mb-6 sidebar-item p-2">
-                                    <Link to={pageRoutes.MY_PROFILE.path} className="flex items-center px-2 gap-x-4">
-                                        <Avatar
+                                        <Link to={pageRoutes.MY_PROFILE.path} className="flex items-center px-2 gap-x-4">
+                                        <CustomAvatar
+                                            src={user?.avatarUrl}
                                             alt={user.name}
                                             className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold"
-                                            style={{fontWeight: "bold", fontSize: "1.5rem", width: 32, height: 32}}
+                                            sx={{fontWeight: "bold", fontSize: "1.5rem", width: 50, height: 50}}
                                         >
-                                            {user.name.charAt(0).toUpperCase()}
-                                        </Avatar>
+                                        </CustomAvatar>
                                         <div>
                                             <p className="font-semibold">
                                                 {
-                                                    (user?.name.charAt(0).toUpperCase() + user?.name.substring(1))
-                                                    + " "
-                                                    + (user?.surname.charAt(0).toUpperCase() + user?.surname.substring(1))
+                                                    getNameAndSurnameWithFormatted(user?.name , user?.surname)
                                                 }
                                             </p>
                                             <p className="text-sm text-gray-500">

@@ -99,5 +99,8 @@
   "groups": "Groups",
   "events": "Events",
   "locations": "Locations",
-  "moreThen": "More then"
+  "moreThen": "More then",
+  "previewImage": "Preview Image",
+  "profileImagePreview": "Profile Image Preview"
+
 }

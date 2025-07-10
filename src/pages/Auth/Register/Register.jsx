@@ -21,6 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../../components/CustomButton/CustomButton.jsx"
 import { ToastMessage } from "../../../utils/Enums";
 import pageRoutes from "../../../route/pageRoutes.jsx";
+import {paths} from "../../../route/paths.js";
 
 const Register = () => {
 
@@ -71,7 +72,6 @@ const Register = () => {
                 showToastMessage(t("userReqisterRequest.unexpectedError"), ToastMessage.ERROR, durationTime);
             }
             const response = await tempResponse.json();
-            console.log(response)
 
             if (response.meta.code !== "200") {
                 showToastMessage(response.meta.errorMessage, ToastMessage.WARNING,
@@ -85,7 +85,7 @@ const Register = () => {
                     ToastMessage.SUCCESS,
                     durationTime);
                 setTimeout(() => {
-                    navigate("/auth/login", {
+                    navigate(pageRoutes.AUTH_LOGIN.path, {
                         state: {
                             username: formik.values.username,
                             password: formik.values.password
@@ -106,7 +106,6 @@ const Register = () => {
         initialValues: UserReqisterRequest,
         validationSchema: useUserReqisterSchema(),
         onSubmit: (values) => {
-            console.log(values)
             handleRegister(values);
         }
     });

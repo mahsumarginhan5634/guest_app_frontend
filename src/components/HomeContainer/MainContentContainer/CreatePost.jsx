@@ -2,6 +2,8 @@ import {Avatar} from "@mui/material";
 import {Link} from "react-router-dom";
 import {getUserFromLocalStorage} from "../../../store/localStorage.js";
 import pageRoutes from "../../../route/pageRoutes.jsx";
+import CustomAvatar from "../../Avatar/CustomAvatar.jsx";
+import {getTextWithCapitalize} from "../../../utils/Functions.jsx";
 
 export default function CreatePost(){
     const user = getUserFromLocalStorage();
@@ -10,19 +12,20 @@ export default function CreatePost(){
             <div className="bg-white rounded-lg shadow mb-6 p-4">
                 <div className="flex space-x-4">
                     <Link to={pageRoutes.MY_PROFILE.path} className="flex items-center px-2">
-                        <Avatar
+                        <CustomAvatar
+                            src={user?.avatarUrl}
                             alt={user?.name}
                             className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold"
-                            style={{fontWeight: "bold", fontSize: "1.5rem", width: 32, height: 32}}
+                            style={{fontWeight: "bold", fontSize: "1.5rem", width: 50, height: 50}}
                         >
                             {user?.name.charAt(0).toUpperCase()}
-                        </Avatar>
+                        </CustomAvatar>
                     </Link>
                     <div className="flex-1">
                         <input
                             type="text"
                             className="w-full rounded-full bg-gray-100 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder={`Ne düşünüyorsun, ${user?.name.charAt(0).toUpperCase() + user?.name.substring(1)} ?`}
+                            placeholder={`Ne düşünüyorsun, ${getTextWithCapitalize(user?.name)} ?`}
                         />
                     </div>
                 </div>

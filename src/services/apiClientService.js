@@ -82,22 +82,21 @@ export const apiClientService = async (url, options = {}, auth = true) => {
     const fullUrl = `${BASE_URL}${url}`;
     let accessToken = getAccessToken();
 
+    const isFormData = options.body instanceof FormData;
+
     if (auth) {
-        if (!accessToken) {
-            return;
-        }
+        if (!accessToken) return;
+
         options.headers = {
-            ...(options.headers || {}),
-            "Authorization": `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-        };
-    }
-    else {
-        options.headers =
-        {
-            ...(options.headers || {}),
-            "Content-Type": "application/json",
-        };
+                            ...(options.headers || {}),
+                            "Authorization": `Bearer ${accessToken}`,
+                            ...(isFormData ? {} : { "Content-Type": "application/json" })
+                          };
+    } else {
+        options.headers = {
+                            ...(options.headers || {}),
+                            ...(isFormData ? {} : { "Content-Type": "application/json" })
+                          };
     }
 
     let response = await fetch(fullUrl, options);
