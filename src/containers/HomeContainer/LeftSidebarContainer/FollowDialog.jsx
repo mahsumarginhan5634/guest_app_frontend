@@ -15,10 +15,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useTranslation} from "react-i18next";
 import {FollowType} from "../../../utils/Enums.js";
 import {getUserFromLocalStorage} from "../../../store/localStorage.js";
-import CustomAvatar from "../../Avatar/CustomAvatar.jsx";
+import CustomAvatar from "../../../components/Avatar/CustomAvatar.jsx";
 
 export default function FollowDialog({ open, onClose, follows, followType }) {
-    const user = getUserFromLocalStorage();
     const [searchTerm, setSearchTerm] = useState('');
     const {t} = useTranslation();
     const filteredFollows = useMemo(() => {

@@ -18,7 +18,7 @@ const pageRoutes = {
     },
     HOME: {
         path: paths.HOME,
-        element: <Home />,
+        element: <Home/>,
     },
     EXPLORE: {
         path: paths.EXPLORE,

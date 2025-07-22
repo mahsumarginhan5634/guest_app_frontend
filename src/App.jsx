@@ -8,13 +8,10 @@ import ToastCleaner from "./utils/ToastCleaner";
 import 'primeicons/primeicons.css';
 import {useEffect, useRef, useState} from "react";
 import PagesNavigation from "./components/Navbar/PagesNavigation.jsx";
-import LeftSidebarContainer from "./components/HomeContainer/LeftSidebarContainer/LeftSidebarContainer.jsx";
-import {getUserFromLocalStorage} from "./store/localStorage.js";
 
 function App() {
     const navbarRef = useRef(null);
     const [navbarHeight , setNavbarHeight] = useState(0);
-    const user = getUserFromLocalStorage();
 
 
     useEffect(() => {
