@@ -1,6 +1,6 @@
 export const paths = {
-    HOME: "/home",
     DEFAULT: "/",
+    HOME: "/home",
     EXPLORE: "/explore",
     NEW_POST: "/new-post",
     REELS: "/reels",

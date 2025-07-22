@@ -3,11 +3,13 @@ import {getUserFromLocalStorage} from "../../../store/localStorage.js";
 import {useEffect, useState} from "react";
 import {getMyFollowedsBirthdays} from "../../../services/UserFollowService.js";
 import {Skeleton} from "@mui/material";
+import {useFollowRefresh} from "../../../context/FollowRefreshProvider.jsx";
 export default function Birthdays(){
 
     const user = getUserFromLocalStorage();
     const [myFollowingsBirthdays , setMyFollowingsBirthdays] = useState([]);
     const [isRequestPending, setIsRequestPending] = useState(false);
+    const {isRefreshed} = useFollowRefresh();
 
     const getMyFollowingBirthdays = async (userId) => {
         try{
@@ -33,7 +35,9 @@ export default function Birthdays(){
             }
             executeThisMethod();
         }
-    }, []);
+    }, [isRefreshed]);
+
+
 
     return (
         <>

@@ -13,11 +13,10 @@ import PlaceIcon from '@mui/icons-material/Place';
 import MenuIcon from '@mui/icons-material/Menu';
 import FollowDialog from "./FollowDialog.jsx";
 import pageRoutes from "../../../route/pageRoutes.jsx";
-import CustomAvatar from "../../Avatar/CustomAvatar.jsx";
+import CustomAvatar from "../../../components/Avatar/CustomAvatar.jsx";
+import {useFollowRefresh} from "../../../context/FollowRefreshProvider.jsx";
 
 export default function LeftSidebarContainer() {
-    const user = getUserFromLocalStorage();
-    const {t} = useTranslation();
     const [follows, setFollows] = useState([]);
     const [followType, setFollowType] = useState("");
     const [followDialogOpen, setFollowDialogOpen] = useState(false);
@@ -25,6 +24,9 @@ export default function LeftSidebarContainer() {
     const [followingCount, setFollowingCount] = useState(0);
     const [isRequestPending, setIsRequestPending] = useState(false);
     const [isSidebarLoading, setIsSidebarLoading] = useState(true);
+    const user = getUserFromLocalStorage();
+    const {t} = useTranslation();
+    const {isRefreshed} = useFollowRefresh();
 
     const getFollowsForUser = async (userId, followType) => {
         try {
@@ -66,6 +68,12 @@ export default function LeftSidebarContainer() {
             setIsSidebarLoading(false); // Kullanıcı null gelirse yine de yükleme tamamlanmış kabul edilir
         }
     }, [user?.id]);
+
+    useEffect(() => {
+        if(user?.id){
+            getUserOfFollowersAndFollowings(user.id)
+        }
+    }, [isRefreshed]);
 
     return (
         <>

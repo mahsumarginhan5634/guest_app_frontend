@@ -2,7 +2,7 @@ import {Avatar} from "@mui/material";
 import {Link} from "react-router-dom";
 import {getUserFromLocalStorage} from "../../../store/localStorage.js";
 import pageRoutes from "../../../route/pageRoutes.jsx";
-import CustomAvatar from "../../Avatar/CustomAvatar.jsx";
+import CustomAvatar from "../../../components/Avatar/CustomAvatar.jsx";
 import {getTextWithCapitalize} from "../../../utils/Functions.jsx";
 
 export default function CreatePost(){

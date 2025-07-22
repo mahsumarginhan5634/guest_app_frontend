@@ -37,3 +37,21 @@ export const getMyFriendSuggestions = async (userId) => {
         }
     )
 }
+
+export const followUser = async (followerId , usernameOfToBeFollowed) => {
+    return apiClientService(
+      `${BASE_URL}/follow-user/${followerId}/${usernameOfToBeFollowed}`,
+        {
+            method: "POST",
+        }
+    );
+}
+
+export const unfollowUser = async (followerId , usernameToBeUnfollowed) => {
+    return apiClientService(
+        `${BASE_URL}/unfollow-user/${followerId}/${usernameToBeUnfollowed}`,
+        {
+            method: "PUT",
+        }
+    );
+}
